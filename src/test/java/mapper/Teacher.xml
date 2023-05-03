@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.TeacherDAO">
+
+    <resultMap id="planShift" type="domain.Teacher">
+        <id column="tno" property="tno" jdbcType="VARCHAR"/>
+        <id column="tname" property="tName" jdbcType="VARCHAR"/>
+        <id column="tsex" property="tSex" jdbcType="VARCHAR"/>
+        <id column="tbirthday" property="tBirthday" jdbcType="DATE"/>
+        <id column="prof" property="prof" jdbcType="VARCHAR"/>
+        <id column="depart" property="depart" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+
+    <sql id="Base_Column_List">
+        tno,tname,tsex,tbirthday,prof,depart
+    </sql>
+
+
+
+    <select id="getAllTeacher" resultMap="planShift" useCache="true" flushCache="false">
+     SELECT
+    <include refid="Base_Column_List"/>
+    FROM
+	teacher
+
+    </select>
+
+
+</mapper>
